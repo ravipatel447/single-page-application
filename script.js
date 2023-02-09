@@ -1,6 +1,7 @@
 const section1 = document.querySelector("#section--1");
 const btnToScrool = document.querySelector(".btn--scroll-to");
 const navLinks = document.querySelector(".nav__links");
+const footerNav = document.querySelector(".footer__nav");
 const nav = document.querySelector(".nav");
 
 ////////////////////////////scrool effect/////////////////////////////
@@ -12,6 +13,13 @@ navLinks.addEventListener("click", (e) => {
   if (e.target.classList.contains("nav__link")) {
     const id = e.target.getAttribute("href");
     console.log(id);
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
+footerNav.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.classList.contains("footer__link")) {
+    const id = e.target.getAttribute("href");
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
 });
