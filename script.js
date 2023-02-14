@@ -3,8 +3,14 @@ const btnToScrool = document.querySelector(".btn--scroll-to");
 const navLinks = document.querySelector(".nav__links");
 const footerNav = document.querySelector(".footer__nav");
 const nav = document.querySelector(".nav");
-
+const logos = document.querySelectorAll(".logo__simform");
 ////////////////////////////scrool effect/////////////////////////////
+logos.forEach((ele) => {
+  ele.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#header").scrollIntoView({ behavior: "smooth" });
+  });
+});
 btnToScrool.addEventListener("click", () => {
   section1.scrollIntoView({ behavior: "smooth" });
 });
@@ -12,7 +18,6 @@ navLinks.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.classList.contains("nav__link")) {
     const id = e.target.getAttribute("href");
-    console.log(id);
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
 });
